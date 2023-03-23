@@ -1,0 +1,7 @@
+student_heights = input("Input a list of student heights ").split()
+student_list = []
+for heights in student_heights: 
+    student_list.append(int(heights)) 
+total_hight = sum(student_list)
+number = len(student_list)
+print(round(total_hight/number))
