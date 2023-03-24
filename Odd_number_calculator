@@ -1,0 +1,14 @@
+user_range = input("In what range you want to add even numbers? Slipt the range with coma")
+
+range1 , range2 = [int (element) for element in user_range.split(",")]
+
+number_list =list(range(range1,range2+1))
+print(number_list)
+
+odd_number= 0 
+
+for number in number_list:
+
+    if number %2 == 1:
+       odd_number += number
+print (odd_number)
