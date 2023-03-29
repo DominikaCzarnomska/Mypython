@@ -1,0 +1,95 @@
+import random
+import hangman_words
+from replit import clear 
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+
+chosen_word = random.choice(hangman_words.word_list)
+lives = 6
+# Testing code
+#print(f'Pssst, the solution is {chosen_word}.')
+
+chosen_list = list(chosen_word)
+
+for index, element in enumerate(chosen_list):
+    chosen_list[index] = "_"
+
+while "_" in chosen_list and lives > 0:
+    joint_list = ' '.join(chosen_list)
+    print(joint_list)
+    guess = input("Guess a letter: ").lower()
+    clear()
+    if guess in chosen_list:
+          print("You have already chosen this letter!")
+  
+    found = False
+    for index, element in enumerate(chosen_word):
+        if element == guess:
+            chosen_list[index] = guess
+            found = True
+      
+    if not found:
+        lives -= 1
+        print(stages[lives])
+    
+    if lives <= 0:
+        print("You lose!")
+
+if chosen_word == ''.join(chosen_list):
+    print(f"Congratulations! You guessed the word: {chosen_word}")
+else:
+    print(f"Sorry, you didn't guess the word. The correct word was: {chosen_word}")
