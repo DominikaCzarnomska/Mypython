@@ -1,0 +1,23 @@
+import math 
+
+def how_many_cans(hight,width,meters):
+  cans = (hight * width) / meters
+  return math.ceil(cans)
+
+def get_float_input(error):
+    while True:
+        try:
+            value = float(input(error))
+            return value
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+
+height_input = get_float_input("What is your wall hight?")
+width_input= get_float_input(("What is your wall width"))
+meters_input = get_float_input(("How many m2 you can paint with 1 can"))
+
+
+many_cans = how_many_cans(height_input,width_input,meters_input)
+
+print (f"You should buy {many_cans} cans")
