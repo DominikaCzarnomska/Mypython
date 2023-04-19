@@ -1,0 +1,27 @@
+from replit import clear
+
+names = ""
+offer = 0
+participant_dic ={names : offer}
+
+
+def count_offer():
+    bidding_offer = max(participant_dic.values())
+    for names, offer in participant_dic.items():
+        if offer == bidding_offer:
+            print(f"The winner is {names}")
+            break
+    
+ask = True
+while ask == True: 
+  participant = input("Are there any other participant?Type: Yes or No ") 
+  if participant == "Yes":
+    clear()
+    names = input("What's your name?")
+    offer = int(input("What is your offer?"))
+    participant_dic[names] = offer
+  elif participant == "No":
+    ask = False
+    clear()
+    count_offer ()
+  
