@@ -1,0 +1,28 @@
+def is_leap(year):
+  if year % 4 == 0:
+    if year % 100 == 0:
+      if year % 400 == 0:
+        return True
+      else:
+        return False 
+    else:
+      return True 
+  else:
+    return False 
+    
+year = int(input("Type a year"))
+month = int(input ("Type number of the number of the month"))
+if  month <1 or month >12 :
+    print("It's wrong input")
+    month = int(input ("Type number of the number of the month"))
+  
+def days_in_month(month, year):
+    month_days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]  
+    if is_leap (year) and month == 2 :
+        print("It's a leap year. The number of days in February is 29")
+    elif is_leap(year) and month != 2:
+        print (f"It's leap year. The number of days is {month_days[month-1]}")
+    else:
+        return print(f"It's not a leap year. The number of days is {month_days[month-1]}")
+   
+days_in_month(month, year)
